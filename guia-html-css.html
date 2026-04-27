@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guía HTML & CSS | Prueba de Desempeño</title>
+  <link href="https://fonts.googleapis.com/css2?family=Afacad:wght@400;700&family=Fira+Code&display=swap" rel="stylesheet">
+  <style>
+
+    /* =============================================
+       VARIABLES GLOBALES
+    ============================================= */
+    :root {
+      --verde: #356630;
+      --verde-claro: #58c510;
+      --negro: #0d0d0d;
+      --blanco: #f5f5f0;
+      --gris: #2a2a2a;
+      --gris-claro: #3a3a3a;
+      --amarillo: #f0c040;
+      --codigo-bg: #1a1a1a;
+      --codigo-color: #a8ff78;
+      --radio: 8px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Afacad', sans-serif;
+      background-color: var(--negro);
+      color: var(--blanco);
+      line-height: 1.7;
+    }
+
+    /* =============================================
+       ENCABEZADO PRINCIPAL
+    ============================================= */
+    .portada {
+      background: linear-gradient(135deg, #0d1f0a, #1a3d14, #0d1f0a);
+      border-bottom: 3px solid var(--verde-claro);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .portada h1 {
+      font-size: 3rem;
+      color: var(--verde-claro);
+      letter-spacing: 2px;
+    }
+
+    .portada p {
+      color: #aaa;
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: var(--verde);
+      color: var(--blanco);
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      margin-top: 1rem;
+    }
+
+    /* =============================================
+       ÍNDICE
+    ============================================= */
+    .indice {
+      max-width: 900px;
+      margin: 2rem auto;
+      background-color: var(--gris);
+      border-radius: var(--radio);
+      padding: 1.5rem 2rem;
+      border-left: 4px solid var(--verde-claro);
+    }
+
+    .indice h2 {
+      color: var(--verde-claro);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .indice ol {
+      padding-left: 1.2rem;
+    }
+
+    .indice li {
+      margin: 0.4rem 0;
+    }
+
+    .indice a {
+      color: var(--amarillo);
+      text-decoration: none;
+    }
+
+    .indice a:hover {
+      text-decoration: underline;
+    }
+
+    /* =============================================
+       SECCIONES
+    ============================================= */
+    .seccion {
+      max-width: 900px;
+      margin: 2rem auto;
+      background-color: var(--gris);
+      border-radius: var(--radio);
+      overflow: hidden;
+    }
+
+    .seccion-header {
+      background: linear-gradient(90deg, var(--verde), #1a4d14);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .seccion-numero {
+      background-color: var(--verde-claro);
+      color: var(--negro);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .seccion-header h2 {
+      color: var(--blanco);
+      font-size: 1.3rem;
+    }
+
+    .seccion-body {
+      padding: 1.5rem;
+    }
+
+    /* =============================================
+       BLOQUES DE CONCEPTO
+    ============================================= */
+    .concepto {
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--gris-claro);
+      padding-bottom: 1.5rem;
+    }
+
+    .concepto:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .concepto h3 {
+      color: var(--amarillo);
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .concepto p {
+      color: #ccc;
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+    }
+
+    /* =============================================
+       BLOQUES DE CÓDIGO
+    ============================================= */
+    pre {
+      background-color: var(--codigo-bg);
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      overflow-x: auto;
+      border-left: 3px solid var(--verde-claro);
+      margin: 0.75rem 0;
+    }
+
+    code {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.88rem;
+      color: var(--codigo-color);
+      line-height: 1.8;
+    }
+
+    .comentario { color: #666; }
+    .propiedad { color: #79c0ff; }
+    .valor     { color: #ffa657; }
+    .selector  { color: #7ee787; }
+    .etiqueta  { color: #ff7b72; }
+    .atributo  { color: #79c0ff; }
+    .string    { color: #a5d6ff; }
+
+    /* =============================================
+       TABLA DE REFERENCIA
+    ============================================= */
+    .tabla-referencia {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+    }
+
+    .tabla-referencia th {
+      background-color: var(--verde);
+      color: var(--blanco);
+      padding: 0.6rem 1rem;
+      text-align: left;
+    }
+
+    .tabla-referencia td {
+      padding: 0.6rem 1rem;
+      border-bottom: 1px solid var(--gris-claro);
+      color: #ccc;
+    }
+
+    .tabla-referencia td:first-child {
+      color: var(--codigo-color);
+      font-family: 'Fira Code', monospace;
+      font-size: 0.85rem;
+    }
+
+    .tabla-referencia tr:hover td {
+      background-color: #222;
+    }
+
+    /* =============================================
+       ALERTAS / TIPS
+    ============================================= */
+    .tip {
+      background-color: #1a2e1a;
+      border-left: 4px solid var(--verde-claro);
+      border-radius: 0 6px 6px 0;
+      padding: 0.75rem 1rem;
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    .tip strong { color: var(--verde-claro); }
+
+    .alerta {
+      background-color: #2e1a00;
+      border-left: 4px solid var(--amarillo);
+      border-radius: 0 6px 6px 0;
+      padding: 0.75rem 1rem;
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    .alerta strong { color: var(--amarillo); }
+
+    /* =============================================
+       DEMO VISUAL FLEXBOX
+    ============================================= */
+    .demo-flex {
+      background-color: #111;
+      border-radius: 6px;
+      padding: 1rem;
+      margin-top: 0.75rem;
+    }
+
+    .demo-flex-contenedor {
+      display: flex;
+      gap: 8px;
+      background-color: #1a2e1a;
+      padding: 0.75rem;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+    }
+
+    .demo-flex-item {
+      background-color: var(--verde);
+      color: var(--blanco);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      text-align: center;
+      font-family: 'Fira Code', monospace;
+    }
+
+    .demo-flex-item.destacado {
+      background-color: var(--verde-claro);
+      color: var(--negro);
+    }
+
+    /* =============================================
+       DEMO VISUAL GRID
+    ============================================= */
+    .demo-grid {
+      display: grid;
+      gap: 8px;
+      background-color: #111;
+      padding: 1rem;
+      border-radius: 6px;
+      margin-top: 0.75rem;
+    }
+
+    .demo-grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .demo-grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+    .demo-grid-item {
+      background-color: var(--verde);
+      color: var(--blanco);
+      padding: 0.75rem;
+      border-radius: 4px;
+      text-align: center;
+      font-size: 0.85rem;
+      font-family: 'Fira Code', monospace;
+    }
+
+    .demo-grid-item.span2 {
+      grid-column: span 2;
+      background-color: #2d6e1e;
+    }
+
+    .demo-grid-item.span3 {
+      grid-column: span 3;
+      background-color: #1a4d0e;
+    }
+
+    /* =============================================
+       DEMO TRANSICIONES
+    ============================================= */
+    .demo-transiciones {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.75rem;
+    }
+
+    .btn-demo {
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.8rem;
+    }
+
+    .btn-t1 {
+      background-color: var(--verde);
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+    .btn-t1:hover { background-color: var(--amarillo); color: var(--negro); }
+
+    .btn-t2 {
+      background-color: var(--gris-claro);
+      color: white;
+      transition: transform 0.3s ease;
+    }
+    .btn-t2:hover { transform: scale(1.1); }
+
+    .btn-t3 {
+      background-color: var(--verde);
+      color: white;
+      transition: box-shadow 0.3s ease;
+    }
+    .btn-t3:hover { box-shadow: 0 0 20px var(--verde-claro); }
+
+    .btn-t4 {
+      background-color: transparent;
+      color: var(--verde-claro);
+      border: 2px solid var(--verde-claro);
+      transition: all 0.3s ease;
+    }
+    .btn-t4:hover {
+      background-color: var(--verde-claro);
+      color: var(--negro);
+    }
+
+    .btn-t5 {
+      background-color: var(--gris-claro);
+      color: white;
+      transition: transform 0.3s ease;
+    }
+    .btn-t5:hover { transform: translateY(-5px); }
+
+    /* =============================================
+       DEMO ANIMACIONES
+    ============================================= */
+    @keyframes girar { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    @keyframes pulsar { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+    @keyframes aparecer { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes flotar { 0%, 100% { transform: translateY(-10px); } 50% { transform: translateY(10px); } }
+    @keyframes parpadear { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+    .demo-animaciones {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 0.75rem;
+      align-items: center;
+    }
+
+    .anim-item {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #aaa;
+      font-family: 'Fira Code', monospace;
+    }
+
+    .anim-caja {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      margin: 0 auto 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .anim-girar    { background: var(--verde); animation: girar 2s linear infinite; }
+    .anim-pulsar   { background: #2d6e1e; animation: pulsar 1.5s ease-in-out infinite; }
+    .anim-flotar   { background: #1a4d0e; animation: flotar 2s ease-in-out infinite; }
+    .anim-aparecer { background: var(--verde-claro); animation: aparecer 2s ease-out infinite; }
+    .anim-parpadear{ background: #356630; animation: parpadear 1s ease-in-out infinite; }
+
+    /* =============================================
+       PIE
+    ============================================= */
+    .pie {
+      text-align: center;
+      padding: 2rem;
+      color: #555;
+      font-size: 0.85rem;
+      border-top: 1px solid #222;
+      margin-top: 2rem;
+    }
+
+    .pie span { color: var(--verde-claro); }
+
+  </style>
+</head>
+<body>
+
+  <!-- PORTADA -->
+  <div class="portada">
+    <h1>📋 Guía HTML & CSS</h1>
+    <p>Referencia completa para la Prueba de Desempeño</p>
+    <span class="badge">Módulo 2 · Riwi 2026 · JJBLL99</span>
+  </div>
+
+  <!-- ÍNDICE -->
+  <div class="indice">
+    <h2>📌 Índice</h2>
+    <ol>
+      <li><a href="#s1">Estructura HTML5 semántica</a></li>
+      <li><a href="#s2">CSS Flexbox completo</a></li>
+      <li><a href="#s3">CSS Grid Layout completo</a></li>
+      <li><a href="#s4">Transiciones CSS</a></li>
+      <li><a href="#s5">Animaciones con @keyframes</a></li>
+      <li><a href="#s6">Variables CSS (:root)</a></li>
+      <li><a href="#s7">Media Queries (diseño responsivo)</a></li>
+      <li><a href="#s8">Selectores y especificidad CSS</a></li>
+      <li><a href="#s9">El modelo de caja (Box Model)</a></li>
+      <li><a href="#s10">Tipografía y texto</a></li>
+      <li><a href="#s11">Colores en CSS</a></li>
+      <li><a href="#s12">Formularios HTML</a></li>
+      <li><a href="#s13">JavaScript básico</a></li>
+      <li><a href="#s14">Git y GitHub</a></li>
+    </ol>
+  </div>
+
+  <!-- =============================================
+    SECCIÓN 1: HTML SEMÁNTICO
+  ============================================= -->
+  <div class="seccion" id="s1">
+    <div class="seccion-header">
+      <div class="seccion-numero">1</div>
+      <h2>Estructura HTML5 Semántica</h2>
+    </div>
+    <div class="seccion-body">
+
+      <div class="concepto">
+        <h3>Estructura base de un archivo HTML</h3>
+        <p>Todo archivo HTML empieza con esta estructura obligatoria:</p>
+        <pre><code><span class="comentario">&lt;!-- Declara que es HTML5 --&gt;</span>
+<span class="etiqueta">&lt;!DOCTYPE html&gt;</span>
+<span class="etiqueta">&lt;html</span> <span class="atributo">lang</span>=<span class="string">"es"</span><span class="etiqueta">&gt;</span>
+<span class="etiqueta">&lt;head&gt;</span>
+  <span class="etiqueta">&lt;meta</span> <span class="atributo">charset</span>=<span class="string">"UTF-8"</span><span class="etiqueta">&gt;</span>
+  <span class="etiqueta">&lt;meta</span> <span class="atributo">name</span>=<span class="string">"viewport"</span> <span class="atributo">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span><span class="etiqueta">&gt;</span>
+  <span class="etiqueta">&lt;title&gt;</span>Título de la página<span class="etiqueta">&lt;/title&gt;</span>
+  <span class="etiqueta">&lt;link</span> <span class="atributo">rel</span>=<span class="string">"stylesheet"</span> <span class="atributo">href</span>=<span class="string">"styles.css"</span><span class="etiqueta">&gt;</span>
+<span class="etiqueta">&lt;/head&gt;</span>
+<span class="etiqueta">&lt;body&gt;</span>
+  <span class="comentario">&lt;!-- Todo el contenido visible va aquí --&gt;</span>
+<span class="etiqueta">&lt;/body&gt;</span>
+<span class="etiqueta">&lt;/html&gt;</span></code></pre>
+      </div>
+
+      <div class="concepto">
+        <h3>Etiquetas semánticas principales</h3>
+        <table class="tabla-referencia">
+          <tr><th>Etiqueta</th><th>Para qué sirve</th></tr>
+          <tr><td>&lt;header&gt;</td><td>Encabezado de la página o sección</td></tr>
+          <tr><td>&lt;nav&gt;</td><td>Menú de navegación</td></tr>
+          <tr><td>&lt;main&gt;</td><td>Contenido principal de la página</td></tr>
+          <tr><td>&lt;section&gt;</td><td>Sección temática del contenido</td></tr>
+          <tr><td>&lt;article&gt;</td><td>Contenido independiente (tarjeta, post)</td></tr>
+          <tr><td>&lt;aside&gt;</td><td>Contenido secundario o lateral</td></tr>
+          <tr><td>&lt;footer&gt;</td><td>Pie de página</td></tr>
+          <tr><td>&lt;div&gt;</td><td>Contenedor genérico sin significado semántico</td></tr>
+        </table>
+        <div class="tip"><strong>💡 Tip:</strong> Las etiquetas semánticas le dicen al navegador QUÉ es el contenido, no solo cómo se ve. Mejoran accesibilidad y SEO.</div>
+      </div>
+
+      <div class="concepto">
+        <h3>Atributos importantes</h3>
+        <table class="tabla-referencia">
+          <tr><th>Atributo</th><th>Qué hace</th><th>Ejemplo</th></tr>
+          <tr><td>id</td><td>Identificador único en la página</td><td>id="sobre-mi"</td></tr>
+          <tr><td>class</td><td>Nombre para aplicar CSS (puede repetirse)</td><td>class="tarjeta boton"</td></tr>
+          <tr><td>href</td><td>Destino de un enlace</td><td>href="pagina.html"</td></tr>
+          <tr><td>src</td><td>Ruta de una imagen</td><td>src="imagenes/foto.jpg"</td></tr>
+          <tr><td>alt</td><td>Texto alternativo de imagen</td><td>alt="Mi foto"</td></tr>
+          <tr><td>placeholder</td><td>Texto gris dentro de un input</td><td>placeholder="Tu nombre"</td></tr>
+          <tr><td>type</td><td>Tipo de input o botón</td><td>type="email"</td></tr>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =============================================
+    SECCIÓN 2: FLEXBOX
+  ============================================= -->
+  <div class="seccion" id="s2">
+    <div class="seccion-header">
+      <div class="seccion-numero">2</div>
+      <h2>CSS Flexbox Completo</h2>
+    </div>
+    <div class="seccion-body">
+
+      <div class="concepto">
+        <h3>¿Qué es Flexbox?</h3>
+        <p>Flexbox organiza elementos en una fila o columna. Se activa con <code style="color:var(--codigo-color)">display: flex</code> en el contenedor padre.</p>
+        <pre><code><span class="selector">.contenedor</span> {
+  <span class="propiedad">display</span>: <span class="valor">flex</span>; <span class="comentario">/* activa flexbox */</span>
+}</code></pre>
+      </div>
+
+      <div class="concepto">
+        <h3>Propiedades del CONTENEDOR (padre)</h3>
+        <table class="tabla-referencia">
+          <tr><th>Propiedad</th><th>Valores comunes</th><th>Qué hace</th></tr>
+          <tr><td>display</td><td>flex</td><td>Activa Flexbox</td></tr>
+          <tr><td>flex-direction</td><td>row | column | row-reverse | column-reverse</td><td>Dirección de los elementos</td></tr>
+          <tr><td>justify-content</td><td>flex-start | center | flex-end | space-between | space-around | space-evenly</td><td>Alineación horizontal</td></tr>
+          <tr><td>align-items</td><td>flex-start | center | flex-end | stretch</td><td>Alineación vertical</td></tr>
+          <tr><td>flex-wrap</td><td>wrap | nowrap</td><td>Si los elementos bajan de línea al no caber</td></tr>
+          <tr><td>gap</td><td>10px | 1rem</td><td>Espacio entre elementos</td></tr>
+        </table>
+
+        <pre><code><span class="selector">.contenedor</span> {
+  <span class="propiedad">display</span>: <span class="valor">flex</span>;
+  <span class="propiedad">flex-direction</span>: <span class="valor">row</span>;           <span class="comentario">/* fila (por defecto) */</span>
+  <span class="propiedad">justify-content</span>: <span class="valor">space-between</span>; <span class="comentario">/* espacio entre elementos */</span>
+  <span class="propiedad">align-items</span>: <span class="valor">center</span>;          <span class="comentario">/* centra verticalmente */</span>
+  <span class="propiedad">flex-wrap</span>: <span class="valor">wrap</span>;             <span class="comentario">/* bajan si no caben */</span>
+  <span class="propiedad">gap</span>: <span class="valor">20px</span>;                   <span class="comentario">/* espacio entre items */</span>
+}</code></pre>
+
+        <div class="demo-flex">
+          <p style="color:#666; font-size:0.8rem; margin-bottom:0.5rem;">justify-content: space-between</p>
+          <div class="demo-flex-contenedor" style="justify-content: space-between;">
+            <div class="demo-flex-item">Item 1</div>
+            <div class="demo-flex-item">Item 2</div>
+            <div class="demo-flex-item destacado">Item 3</div>
+          </div>
+          <p style="color:#666; font-size:0.8rem; margin-bottom:0.5rem; margin-top:0.75rem;">justify-content: center</p>
+          <div class="demo-flex-contenedor" style="justify-content: center;">
+            <div class="demo-flex-item">Item 1</div>
+            <div class="demo-flex-item">Item 2</div>
+            <div class="demo-flex-item destacado">Item 3</div>
+          </div>
+          <p style="color:#666; font-size:0.8rem; margin-bottom:0.5rem; margin-top:0.75rem;">flex-direction: column</p>
+          <div class="demo-flex-contenedor" style="flex-direction: column; align-items: flex-start;">
+            <div class="demo-flex-item">Item 1</div>
+            <div class="demo-flex-item">Item 2</div>
+            <div class="demo-flex-item destacado">Item 3</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="concepto">
+        <h3>Propiedades de los ITEMS (hijos)</h3>
+        <table class="tabla-referencia">
+          <tr><th>Propiedad</th><th>Qué hace</th></tr>
+          <tr><td>flex-grow: 1</td><td>El item crece para ocupar el espacio disponible</td></tr>
+          <tr><td>flex-shrink: 0</td><td>El item NO se achica aunque no haya espacio</td></tr>
+          <tr><td>align-self: center</td><td>Alineación individual del item (ignora align-items del padre)</td></tr>
+        </table>
+        <pre><code><span class="selector">.item</span> {
+  <span class="propiedad">flex-grow</span>: <span class="valor">1</span>;      <span class="comentario">/* ocupa todo el espacio disponible */</span>
+  <span class="propiedad">flex-shrink</span>: <span class="valor">0</span>;   <span class="comentario">/* no se achica */</span>
+  <span class="propiedad">align-self</span>: <span class="valor">center</span>;<span class="comentario">/* se alinea solo */</span>
+}</code></pre>
+        <div class="tip"><strong>💡 Regla fácil:</strong> justify-content = eje horizontal · align-items = eje vertical. Cuando flex-direction es column, se invierten.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =============================================
+    SECCIÓN 3: CSS GRID
+  ============================================= -->
+  <div class="seccion" id="s3">
+    <div class="seccion-header">
+      <div class="seccion-numero">3</div>
+      <h2>CSS Grid Layout Completo</h2>
+    </div>
+    <div class="seccion-body">
+
+      <div class="concepto">
+        <h3>¿Qué es CSS Grid?</h3>
+        <p>Grid organiza elementos en filas Y columnas al mismo tiempo. Ideal para layouts complejos como galerías y dashboards.</p>
+        <pre><code><span class="selector">.contenedor</span> {
+  <span class="propiedad">display</span>: <span class="valor">grid</span>;
+  <span class="propiedad">grid-template-columns</span>: <span class="valor">repeat(3, 1fr)</span>; <span class="comentario">/* 3 columnas iguales */</span>
+  <span class="propiedad">gap</span>: <span class="valor">20px</span>;
+}</code></pre>
+      </div>
+
+      <div class="concepto">
+        <h3>Propiedades principales del CONTENEDOR</h3>
+        <table class="tabla-referencia">
+          <tr><th>Propiedad</th><th>Ejemplo</th><th>Qué hace</th></tr>
+          <tr><td>display: grid</td><td>display: grid</td><td>Activa CSS Grid</td></tr>
+          <tr><td>grid-template-columns</td><td>repeat(3, 1fr)</td><td>Define cuántas columnas y su tamaño</td></tr>
+          <tr><td>grid-template-rows</td><td>100px auto 200px</td><td>Define el alto de las filas</td></tr>
+          <tr><td>gap</td><td>20px</td><td>Espacio entre filas y columnas</td></tr>
+          <tr><td>column-gap</td><td>20px</td><td>Solo espacio entre columnas</td></tr>
+          <tr><td>row-gap</td><td>10px</td><td>Solo espacio entre filas</td></tr>
+          <tr><td>justify-items</td><td>center</td><td>Alineación horizontal de los items</td></tr>
+          <tr><td>align-items</td><td>center</td><td>Alineación vertical de los items</td></tr>
+        </table>
+      </div>
+
+      <div class="concepto">
+        <h3>repeat() y fr — las unidades de Grid</h3>
+        <pre><code><span class="comentario">/* repeat(N, tamaño): crea N columnas del mismo tamaño */</span>
+<span class="propiedad">grid-template-columns</span>: <span class="valor">repeat(3, 1fr)</span>;  <span class="comentario">/* 3 columnas iguales */</span>
+<span class="propiedad">grid-template-columns</span>: <span class="valor">repeat(2, 1fr)</span>;  <span class="comentario">/* 2 columnas iguales */</span>
+
+<span class="comentario">/* fr = fracción del espacio disponible */</span>
+<span class="propiedad">grid-template-columns</span>: <span class="valor">1fr 2fr 1fr</span>;    <span class="comentario">/* col del medio el doble de ancha */</span>
+<span class="propiedad">grid-template-columns</span>: <span class="valor">200px 1fr</span>;      <span class="comentario">/* sidebar fijo + contenido flexible */</span></code></pre>
+
+        <div class="demo-grid demo-grid-3">
+          <div class="demo-grid-item">1fr</div>
+          <div class="demo-grid-item">1fr</div>
+          <div class="demo-grid-item">1fr</div>
+          <div class="demo-grid-item">1fr</div>
+          <div class="demo-grid-item">1fr</div>
+          <div class="demo-grid-item">1fr</div>
+        </div>
+      </div>
+
+      <div class="concepto">
+        <h3>grid-column: span — efecto mosaico</h3>
+        <p>Hace que un elemento ocupe más de una columna. Muy usado en galerías.</p>
+        <pre><code><span class="selector">.tarjeta-grande</span> {
+  <span class="propiedad">grid-column</span>: <span class="valor">span 2</span>; <span class="comentario">/* ocupa 2 columnas */</span>
+}
+
+<span class="selector">.tarjeta-completa</span> {
+  <span class="propiedad">grid-column</span>: <span class="valor">span 3</span>; <span class="comentario">/* ocupa toda la fila */</span>
+}</code></pre>
+
+        <div class="demo-grid demo-grid-3">
+          <div class="demo-grid-item span3">span 3 (fila completa)</div>
+          <div class="demo-grid-item span2">span 2</div>
+          <div class="demo-grid-item">1</div>
+          <div class="demo-grid-item">1</div>
+          <div class="demo-grid-item">1</div>
+          <div class="demo-grid-item">1</div>
+        </div>
+        <div class="tip"><strong>💡 Diferencia clave:</strong> Flexbox = una dimensión (fila O columna). Grid = dos dimensiones (filas Y columnas).</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =============================================
+    SECCIÓN 4: TRANSICIONES
+  ============================================= -->
+  <div class="seccion" id="s4">
+    <div class="seccion-header">
+      <div class="seccion-numero">4</div>
+      <h2>Transiciones CSS</h2>
+    </div>
+    <div class="seccion-body">
+
+      <div class="concepto">
+        <h3>¿Qué es una transición?</h3>
+        <p>Hace que un cambio de estilo ocurra suavemente en vez de de golpe. Se activa normalmente con :hover.</p>
+        <pre><code><span class="selector">.elemento</span> {
+  <span class="propiedad">transition</span>: <span class="valor">propiedad duración función-de-tiempo</span>;
+
+  <span class="comentario">/* Ejemplos: */</span>
+  <span class="propiedad">transition</span>: <span class="valor">background-color 0.3s ease</span>;
+  <span class="propiedad">transition</span>: <span class="valor">transform 0.5s ease-in-out</span>;
+  <span class="propiedad">transition</span>: <span class="valor">all 0.3s ease</span>; <span class="comentario">/* transiciona todo */</span>
+}</code></pre>
+      </div>
+
+      <div class="concepto">
+        <h3>Funciones de tiempo</h3>
+        <table class="tabla-referencia">
+          <tr><th>Función</th><th>Comportamiento</th></tr>
+          <tr><td>ease</td><td>Arranca rápido, frena al final (por defecto)</td></tr>
+          <tr><td>ease-in</td><td>Arranca lento, acelera al final</td></tr>
+          <tr><td>ease-out</td><td>Arranca rápido, frena al final</td></tr>
+          <tr><td>ease-in-out</td><td>Arranca lento, acelera en el medio, frena al final</td></tr>
+          <tr><td>linear</td><td>Velocidad constante de inicio a fin</td></tr>
+        </table>
+      </div>
+
+      <div class="concepto">
+        <h3>Ejemplos de transiciones comunes</h3>
+        <pre><code><span class="comentario">/* 1. Cambio de color */</span>
+<span class="selector">.boton</span> { <span class="propiedad">transition</span>: <span class="valor">background-color 0.3s ease</span>; }
+<span class="selector">.boton:hover</span> { <span class="propiedad">background-color</span>: <span class="valor">#f0c040</span>; }
+
+<span class="comentario">/* 2. Escalar (agrandar) */</span>
+<span class="selector">.tarjeta</span> { <span class="propiedad">transition</span>: <span class="valor">transform 0.3s ease</span>; }
+<span class="selector">.tarjeta:hover</span> { <span class="propiedad">transform</span>: <span class="valor">scale(1.05)</span>; }
+
+<span class="comentario">/* 3. Subir al hacer hover */</span>
+<span class="selector">.tarjeta</span> { <span class="propiedad">transition</span>: <span class="valor">transform 0.3s ease</span>; }
+<span class="selector">.tarjeta:hover</span> { <span class="propiedad">transform</span>: <span class="valor">translateY(-5px)</span>; }
+
+<span class="comentario">/* 4. Sombra */</span>
+<span class="selector">.caja</span> { <span class="propiedad">transition</span>: <span class="valor">box-shadow 0.3s ease</span>; }
+<span class="selector">.caja:hover</span> { <span class="propiedad">box-shadow</span>: <span class="valor">0 8px 20px rgba(0,0,0,0.3)</span>; }
+
+<span class="comentario">/* 5. Borde redondeado */</span>
+<span class="selector">.img</span> { <span class="propiedad">transition</span>: <span class="valor">border-radius 0.3s ease</span>; }
+<span class="selector">.img:hover</span> { <span class="propiedad">border-radius</span>: <span class="valor">50%</span>; }</code></pre>
+
+        <p style="color:#aaa; margin-bottom:0.5rem; font-size:0.9rem;">🖱️ Pasa el mouse por los botones:</p>
+        <div class="demo-transiciones">
+          <button class="btn-demo btn-t1">Color</button>
+          <button class="btn-demo btn-t2">Scale</button>
+          <button class="btn-demo btn-t3">Sombra</button>
+          <button class="btn-demo btn-t4">Borde</button>
+          <button class="btn-demo btn-t5">Subir</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =============================================
+    SECCIÓN 5: ANIMACIONES
+  ============================================= -->
+  <div class="seccion" id="s5">
+    <div class="seccion-header">
+      <div class="seccion-numero">5</div>
+      <h2>Animaciones con @keyframes</h2>
+    </div>
+    <div class="seccion-body">
+
+      <div class="concepto">
+        <h3>Diferencia entre transición y animación</h3>
+        <table class="tabla-referencia">
+          <tr><th></th><th>Transición</th><th>Animación</th></tr>
+          <tr><td>Se activa</td><td>Con :hover u otro evento</td><td>Automáticamente</td></tr>
+          <tr><td>Se repite</td><td>No</td><td>Sí (infinite)</td></tr>
+          <tr><td>Pasos</td><td>Solo inicio y fin</td><td>Múltiples pasos (0%, 50%, 100%)</td></tr>
+        </table>
+      </div>
+
+      <div class="concepto">
+        <h3>Sintaxis de @keyframes</h3>
+        <pre><code><span class="comentario">/* 1. Define los pasos de la animación */</span>
+<span class="selector">@keyframes</span> <span class="valor">nombre-animacion</span> {
+  <span class="valor">0%</span>   { <span class="propiedad">transform</span>: <span class="valor">translateY(0px)</span>; }    <span class="comentario">/* inicio */</span>
+  <span class="valor">50%</span>  { <span class="propiedad">transform</span>: <span class="valor">translateY(-20px)</span>; } <span class="comentario">/* mitad */</span>
+  <span class="valor">100%</span> { <span class="propiedad">transform</span>: <span class="valor">translateY(0px)</span>; }    <span class="comentario">/* fin */</span>
+}
+
+<span class="comentario">/* 2. Aplica la animación al elemento */</span>
+<span class="selector">.elemento</span> {
+  <span class="propiedad">animation</span>: <span class="valor">nombre-animacion 2s ease-in-out infinite</span>;
+  <span class="comentario">/*          nombre            duración  función  repetición */</span>
+}</code></pre>
+      </div>
+
+      <div class="concepto">
+        <h3>Animaciones comunes</h3>
+        <pre><code><span class="comentario">/* Flotar (arriba y abajo) */</span>
+<span class="selector">@keyframes</span> <span class="valor">flotar</span> {
+  <span class="valor">0%, 100%</span> { <span class="propiedad">transform</span>: <span class="valor">translateY(-10px)</span>; }
+  <span class="valor">50%</span>      { <span class="propiedad">transform</span>: <span class="valor">translateY(10px)</span>; }
+}
+
+<span class="comentario">/* Girar */</span>
+<span class="selector">@keyframes</span> <span class="valor">girar</span> {
+  <span class="valor">0%</span>   { <span class="propiedad">transform</span>: <span class="valor">rotate(0deg)</span>; }
+  <span class="valor">100%</span> { <span class="propiedad">transform</span>: <span class="valor">rotate(360deg)</span>; }
+}
+
+<span class="comentario">/* Pulsar (agrandarse y reducirse) */</span>
+<span class="selector">@keyframes</span> <span class="valor">pulsar</span> {
+  <span class="valor">0%, 100%</span> { <span class="propiedad">transform</span>: <span class="valor">scale(1)</span>; }
+  <span class="valor">50%</span>      { <span class="propiedad">transform</span>: <span class="valor">scale(1.2)</span>; }
+}
+
+<span class="comentario">/* Aparecer desde abajo */</span>
+<span class="selector">@keyframes</span> <span class="valor">aparecer</span> {
+  <span class="valor">from</span> { <span class="propiedad">opacity</span>: <span class="valor">0</span>; <span class="propiedad">transform</span>: <span class="valor">translateY(20px)</span>; }
+  <span class="valor">to</span>   { <span class="propiedad">opacity</span>: <span class="valor">1</span>; <span class="propiedad">transform</span>: <span class="valor">translateY(0)</span>; }
+}</code></pre>
+
+        <div class="demo-animaciones">
+          <div class="anim-item">
+            <div class="anim-caja anim-flotar">🐱</div>
+            flotar
+          </div>
+          <div class="anim-item">
+            <div class="anim-caja anim-girar">⚙️</div>
+            girar
+          </div>
+          <div class="anim-item">
+            <div class="anim-caja anim-pulsar">❤️</div>
+            pulsar
+          </div>
+          <div class="anim-item">
+            <div class="anim-caja anim-aparecer">✨</div>
+            aparecer
+          </div>
+          <div class="anim-item">
+            <div class="anim-caja anim-parpadear">💡</div>
+            parpadear
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =============================================
+    SECCIÓN 6: VARIABLES CSS
+  ============================================= -->
+  <div class="seccion" id="s6">
+    <div class="seccion-header">
+      <div class="seccion-numero">6</div>
+      <h2>Variables CSS (:root)</h2>
+    </div>
+    <div class="seccion-body">
+
+      <div class="concepto">
+        <h3>¿Qué son las variables CSS?</h3>
+        <p>Permiten guardar valores (colores, tamaños, fuentes) en un solo lugar y reutilizarlos en todo el CSS. Para cambiar un color, solo se edita en :root.</p>
+        <pre><code><span class="comentario">/* Define las variables en :root (aplica globalmente) */</span>
+<span class="selector">:root</span> {
+  <span class="propiedad">--color-primario</span>: <span class="valor">#356630</span>;
+  <span class="propiedad">--color-secundario</span>: <span class="valor">#2d2f3b</span>;
+  <span class="propiedad">--color-texto</span>: <span class="valor">#000000</span>;
+  <span class="propiedad">--fuente</span>: <span class="valor">'Afacad', sans-serif</span>;
+  <span class="propiedad">--radio-borde</span>: <span class="valor">10px</span>;
+}
+
+<span class="comentario">/* Usa las variables con var() */</span>
+<span class="selector">.boton</span> {
+  <span class="propiedad">background-color</span>: <span class="valor">var(--color-primario)</span>;
+  <span class="propiedad">font-family</span>: <span class="valor">var(--fuente)</span>;
+  <span class="propiedad">border-radius</span>: <span class="valor">var(--radio-borde)</span>;
+}</code></pre>
+        <div class="tip"><strong>💡 Convención:</strong> Los nombres de variables siempre empiezan con <code style="color:var(--codigo-color)">--</code> (doble guión).</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =============================================
+    SECCIÓN 7: MEDIA QUERIES
+  ============================================= -->
+  <div class="seccion" id="s7">
+    <div class="seccion-header">
+      <div class="seccion-numero">7</div>
+      <h2>Media Queries (Diseño Responsivo)</h2>
+    </div>
+    <div class="seccion-body">
+
+      <div class="concepto">
+        <h3>¿Qué son las media queries?</h3>
+        <p>Aplican estilos CSS solo cuando se cumplen ciertas condiciones de pantalla. Hacen que el diseño se adapte a móviles, tablets y escritorios.</p>
+        <pre><code><span class="comentario">/* Se activa cuando la pantalla tiene máximo 480px (móvil) */</span>
+<span class="selector">@media</span> (<span class="propiedad">max-width</span>: <span class="valor">480px</span>) {
+  <span class="selector">.menu</span> {
+    <span class="propiedad">flex-direction</span>: <span class="valor">column</span>; <span class="comentario">/* menú en columna en móvil */</span>
+  }
+  <span class="selector">.grid-proyectos</span> {
+    <span class="propiedad">grid-template-columns</span>: <span class="valor">1fr</span>; <span class="comentario">/* 1 columna en móvil */</span>
+  }
+}
+
+<span class="comentario">/* Se activa cuando la pantalla tiene máximo 768px (tablet) */</span>
+<span class="selector">@media</span> (<span class="propiedad">max-width</span>: <span class="valor">768px</span>) {
+  <span class="selector">.grid-proyectos</span> {
+    <span class="propiedad">grid-template-columns</span>: <span class="valor">repeat(2, 1fr)</span>; <span class="comentario">/* 2 columnas en tablet */</span>
+  }
+}</code></pre>
+      </div>
+
+      <div class="concepto">
+        <h3>Breakpoints estándar</h3>
+        <table class="tabla-referencia">
+          <tr><th>Dispositivo</th><th>Breakpoint</th><th>Uso típico</th></tr>
+          <tr><td>Móvil pequeño</td><td>max-width: 480px</td><td>1 columna, menú en columna</td></tr>
+          <tr><td>Tablet</td><td>max-width: 768px</td><td>2 columnas, layout simplificado</td></tr>
+          <tr><td>Laptop</td><td>max-width: 1024px</td><td>3 columnas</td></tr>
+          <tr><td>Escritorio</td><td>min-width: 1025px</td><td>Layout completo</td></tr>
+        </table>
+        <div class="alerta"><strong>⚠️ Importante:</strong> Las media queries van al FINAL del CSS para que sobreescriban los estilos normales correctamente.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =============================================
+    SECCIÓN 8: SELECTORES
+  ============================================= -->
+  <div class="seccion" id="s8">
+    <div class="seccion-header">
+      <div class="seccion-numero">8</div>
+      <h2>Selectores y Especificidad CSS</h2>
+    </div>
+    <div class="seccion-body">
+
+      <div class="concepto">
+        <h3>Tipos de selectores</h3>
+        <pre><code><span class="comentario">/* Selector de etiqueta - aplica a todos los p */</span>
+<span class="selector">p</span> { <span class="propiedad">color</span>: <span class="valor">black</span>; }
+
+<span class="comentario">/* Selector de clase - aplica a class="boton" */</span>
+<span class="selector">.boton</span> { <span class="propiedad">background</span>: <span class="valor">green</span>; }
+
+<span class="comentario">/* Selector de id - aplica a id="menu" */</span>
+<span class="selector">#menu</span> { <span class="propiedad">display</span>: <span class="valor">flex</span>; }
+
+<span class="comentario">/* Selector descendiente - p dentro de .seccion */</span>
+<span class="selector">.seccion p</span> { <span class="propiedad">font-size</span>: <span class="valor">1rem</span>; }
+
+<span class="comentario">/* Selector hijo directo */</span>
+<span class="selector">.menu > a</span> { <span class="propiedad">color</span>: <span class="valor">white</span>; }
+
+<span class="comentario">/* Pseudo-clase :hover */</span>
+<span class="selector">.boton:hover</span> { <span class="propiedad">background</span>: <span class="valor">blue</span>; }
+
+<span class="comentario">/* Pseudo-clase :focus */</span>
+<span class="selector">.campo:focus</span> { <span class="propiedad">border-color</span>: <span class="valor">green</span>; }</code></pre>
+      </div>
+
+      <div class="concepto">
+        <h3>Especificidad — quién gana cuando hay conflicto</h3>
+        <table class="tabla-referencia">
+          <tr><th>Selector</th><th>Peso</th><th>Ejemplo</th></tr>
+          <tr><td>!important</td><td>Gana siempre (evitar)</td><td>color: red !important</td></tr>
+          <tr><td>id (#)</td><td>100</td><td>#menu</td></tr>
+          <tr><td>clase (.)</td><td>10</td><td>.boton</td></tr>
+          <tr><td>etiqueta</td><td>1</td><td>p, div, h1</td></tr>
+        </table>
+        <div class="tip"><strong>💡 Regla:</strong> Si dos estilos apuntan al mismo elemento, gana el que tiene más especificidad. Si tienen el mismo peso, gana el que está más abajo en el CSS.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =============================================
+    SECCIÓN 9: BOX MODEL
+  ============================================= -->
+  <div class="seccion" id="s9">
+    <div class="seccion-header">
+      <div class="seccion-numero">9</div>
+      <h2>El Modelo de Caja (Box Model)</h2>
+    </div>
+    <div class="seccion-body">
+
+      <div class="concepto">
+        <h3>¿Qué es el Box Model?</h3>
+        <p>Todo elemento HTML es una caja con 4 capas:</p>
+        <pre><code><span class="selector">.caja</span> {
+  <span class="propiedad">content</span>:  <span class="comentario">/* el contenido real (texto, imagen) */</span>
+  <span class="propiedad">padding</span>:  <span class="valor">20px</span>;    <span class="comentario">/* espacio DENTRO del borde */</span>
+  <span class="propiedad">border</span>:   <span class="valor">2px solid black</span>; <span class="comentario">/* el borde */</span>
+  <span class="propiedad">margin</span>:   <span class="valor">30px</span>;    <span class="comentario">/* espacio FUERA del borde */</span>
+
+  <span class="comentario">/* box-sizing: border-box hace que padding y border
+     se incluyan dentro del width total del elemento */</span>
+  <span class="propiedad">box-sizing</span>: <span class="valor">border-box</span>;
+}</code></pre>
+      </div>
+
+      <div class="concepto">
+        <h3>Margin y Padding — sintaxis corta</h3>
+        <pre><code><span class="comentario">/* 1 valor: todos los lados iguales */</span>
+<span class="propiedad">margin</span>: <span class="valor">20px</span>;
+
+<span class="comentario">/* 2 valores: arriba/abajo  izquierda/derecha */</span>
+<span class="propiedad">margin</span>: <span class="valor">20px 40px</span>;
+
+<span class="comentario">/* 4 valores: arriba  derecha  abajo  izquierda (sentido horario) */</span>
+<span class="propiedad">margin</span>: <span class="valor">10px 20px 30px 40px</span>;
+
+<span class="comentario">/* Centrar horizontalmente un bloque */</span>
+<span class="propiedad">margin</span>: <span class="valor">0 auto</span>;</code></pre>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =============================================
+    SECCIÓN 10: TIPOGRAFÍA
+  ============================================= -->
+  <div class="seccion" id="s10">
+    <div class="seccion-header">
+      <div class="seccion-numero">10</div>
+      <h2>Tipografía y Texto</h2>
+    </div>
+    <div class="seccion-body">
+
+      <div class="concepto">
+        <h3>Propiedades de texto principales</h3>
+        <pre><code><span class="selector">.texto</span> {
+  <span class="propiedad">font-family</span>: <span class="valor">'Afacad', sans-serif</span>; <span class="comentario">/* fuente */</span>
+  <span class="propiedad">font-size</span>: <span class="valor">1rem</span>;                 <span class="comentario">/* tamaño (relativo) */</span>
+  <span class="propiedad">font-weight</span>: <span class="valor">700</span>;               <span class="comentario">/* grosor: 400=normal, 700=negrita */</span>
+  <span class="propiedad">font-style</span>: <span class="valor">italic</span>;             <span class="comentario">/* cursiva */</span>
+  <span class="propiedad">line-height</span>: <span class="valor">1.6</span>;              <span class="comentario">/* espaciado entre líneas */</span>
+  <span class="propiedad">letter-spacing</span>: <span class="valor">2px</span>;           <span class="comentario">/* espacio entre letras */</span>
+  <span class="propiedad">text-align</span>: <span class="valor">center</span>;            <span class="comentario">/* left | center | right | justify */</span>
+  <span class="propiedad">text-decoration</span>: <span class="valor">none</span>;          <span class="comentario">/* quita subrayado de enlaces */</span>
+  <span class="propiedad">text-transform</span>: <span class="valor">uppercase</span>;      <span class="comentario">/* MAYÚSCULAS */</span>
+  <span class="propiedad">color</span>: <span class="valor">#333</span>;                    <span class="comentario">/* color del texto */</span>
+}</code></pre>
+      </div>
+
+      <div class="concepto">
+        <h3>Unidades de medida relativas vs absolutas</h3>
+        <table class="tabla-referencia">
+          <tr><th>Unidad</th><th>Tipo</th><th>Equivale a</th></tr>
+          <tr><td>px</td><td>Absoluta</td><td>Píxeles fijos — no escala</td></tr>
+          <tr><td>rem</td><td>Relativa</td><td>Relativo al font-size del &lt;html&gt; (16px por defecto). 1rem = 16px</td></tr>
+          <tr><td>em</td><td>Relativa</td><td>Relativo al font-size del elemento padre</td></tr>
+          <tr><td>%</td><td>Relativa</td><td>Porcentaje del elemento padre</td></tr>
+          <tr><td>vw</td><td>Relativa</td><td>% del ancho de la ventana. 100vw = ancho completo</td></tr>
+          <tr><td>vh</td><td>Relativa</td><td>% del alto de la ventana. 100vh = alto completo</td></tr>
+        </table>
+        <div class="tip"><strong>💡 Recomendación:</strong> Usa <code style="color:var(--codigo-color)">rem</code> para tamaños de fuente y <code style="color:var(--codigo-color)">px</code> para bordes. Evita <code style="color:var(--codigo-color)">px</code> en font-size para mejor responsividad.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =============================================
+    SECCIÓN 11: COLORES
+  ============================================= -->
+  <div class="seccion" id="s11">
+    <div class="seccion-header">
+      <div class="seccion-numero">11</div>
+      <h2>Colores en CSS</h2>
+    </div>
+    <div class="seccion-body">
+
+      <div class="concepto">
+        <h3>Formatos de color</h3>
+        <pre><code><span class="comentario">/* Nombre */</span>
+<span class="propiedad">color</span>: <span class="valor">red</span>;
+<span class="propiedad">color</span>: <span class="valor">white</span>;
+
+<span class="comentario">/* Hexadecimal (el más usado) */</span>
+<span class="propiedad">color</span>: <span class="valor">#356630</span>;     <span class="comentario">/* verde oscuro */</span>
+<span class="propiedad">color</span>: <span class="valor">#356630dc</span>;   <span class="comentario">/* con transparencia (dc = ~86%) */</span>
+
+<span class="comentario">/* RGB */</span>
+<span class="propiedad">color</span>: <span class="valor">rgb(53, 102, 48)</span>;
+
+<span class="comentario">/* RGBA (con transparencia: 0=transparente, 1=opaco) */</span>
+<span class="propiedad">color</span>: <span class="valor">rgba(53, 102, 48, 0.5)</span>;  <span class="comentario">/* 50% transparente */</span>
+
+<span class="comentario">/* Gradiente */</span>
+<span class="propiedad">background</span>: <span class="valor">linear-gradient(135deg, #0d1f0a, #356630)</span>;</code></pre>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =============================================
+    SECCIÓN 12: FORMULARIOS
+  ============================================= -->
+  <div class="seccion" id="s12">
+    <div class="seccion-header">
+      <div class="seccion-numero">12</div>
+      <h2>Formularios HTML</h2>
+    </div>
+    <div class="seccion-body">
+
+      <div class="concepto">
+        <h3>Elementos de formulario</h3>
+        <pre><code><span class="etiqueta">&lt;form</span> <span class="atributo">class</span>=<span class="string">"formulario"</span><span class="etiqueta">&gt;</span>
+
+  <span class="comentario">&lt;!-- Texto normal --&gt;</span>
+  <span class="etiqueta">&lt;input</span> <span class="atributo">type</span>=<span class="string">"text"</span> <span class="atributo">placeholder</span>=<span class="string">"Tu nombre"</span><span class="etiqueta">&gt;</span>
+
+  <span class="comentario">&lt;!-- Correo (valida formato automáticamente) --&gt;</span>
+  <span class="etiqueta">&lt;input</span> <span class="atributo">type</span>=<span class="string">"email"</span> <span class="atributo">placeholder</span>=<span class="string">"Tu correo"</span><span class="etiqueta">&gt;</span>
+
+  <span class="comentario">&lt;!-- Teléfono (teclado numérico en móvil) --&gt;</span>
+  <span class="etiqueta">&lt;input</span> <span class="atributo">type</span>=<span class="string">"tel"</span> <span class="atributo">placeholder</span>=<span class="string">"Tu teléfono"</span><span class="etiqueta">&gt;</span>
+
+  <span class="comentario">&lt;!-- Área de texto (varias líneas) --&gt;</span>
+  <span class="etiqueta">&lt;textarea</span> <span class="atributo">placeholder</span>=<span class="string">"Tu mensaje..."</span><span class="etiqueta">&gt;&lt;/textarea&gt;</span>
+
+  <span class="comentario">&lt;!-- Botón enviar --&gt;</span>
+  <span class="etiqueta">&lt;button</span> <span class="atributo">type</span>=<span class="string">"submit"</span><span class="etiqueta">&gt;</span>Enviar<span class="etiqueta">&lt;/button&gt;</span>
+
+<span class="etiqueta">&lt;/form&gt;</span></code></pre>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =============================================
+    SECCIÓN 13: JAVASCRIPT BÁSICO
+  ============================================= -->
+  <div class="seccion" id="s13">
+    <div class="seccion-header">
+      <div class="seccion-numero">13</div>
+      <h2>JavaScript Básico</h2>
+    </div>
+    <div class="seccion-body">
+
+      <div class="concepto">
+        <h3>Cómo enlazar el archivo JS</h3>
+        <pre><code><span class="comentario">&lt;!-- Siempre antes de cerrar &lt;/body&gt; --&gt;</span>
+<span class="etiqueta">&lt;script</span> <span class="atributo">src</span>=<span class="string">"script.js"</span><span class="etiqueta">&gt;&lt;/script&gt;</span>
+<span class="etiqueta">&lt;/body&gt;</span></code></pre>
+      </div>
+
+      <div class="concepto">
+        <h3>Seleccionar elementos del HTML</h3>
+        <pre><code><span class="comentario">// Por id</span>
+<span class="propiedad">const</span> boton = document.<span class="valor">getElementById</span>(<span class="string">'mi-boton'</span>);
+
+<span class="comentario">// Por clase (devuelve el primero)</span>
+<span class="propiedad">const</span> tarjeta = document.<span class="valor">querySelector</span>(<span class="string">'.tarjeta'</span>);
+
+<span class="comentario">// Por clase (devuelve todos)</span>
+<span class="propiedad">const</span> tarjetas = document.<span class="valor">querySelectorAll</span>(<span class="string">'.tarjeta'</span>);</code></pre>
+      </div>
+
+      <div class="concepto">
+        <h3>Eventos y acciones</h3>
+        <pre><code><span class="comentario">// Al hacer clic en un botón</span>
+boton.<span class="valor">addEventListener</span>(<span class="string">'click'</span>, <span class="propiedad">function</span>() {
+
+  <span class="comentario">// Cambiar texto</span>
+  elemento.<span class="valor">textContent</span> = <span class="string">'Nuevo texto'</span>;
+
+  <span class="comentario">// Mostrar u ocultar</span>
+  elemento.style.<span class="valor">display</span> = <span class="string">'block'</span>;  <span class="comentario">// mostrar</span>
+  elemento.style.<span class="valor">display</span> = <span class="string">'none'</span>;   <span class="comentario">// ocultar</span>
+
+  <span class="comentario">// Cambiar estilo</span>
+  elemento.style.<span class="valor">color</span> = <span class="string">'red'</span>;
+
+  <span class="comentario">// Agregar o quitar una clase CSS</span>
+  elemento.<span class="valor">classList.add</span>(<span class="string">'activo'</span>);
+  elemento.<span class="valor">classList.remove</span>(<span class="string">'activo'</span>);
+  elemento.<span class="valor">classList.toggle</span>(<span class="string">'activo'</span>); <span class="comentario">// agrega si no está, quita si está</span>
+});</code></pre>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =============================================
+    SECCIÓN 14: GIT Y GITHUB
+  ============================================= -->
+  <div class="seccion" id="s14">
+    <div class="seccion-header">
+      <div class="seccion-numero">14</div>
+      <h2>Git y GitHub</h2>
+    </div>
+    <div class="seccion-body">
+
+      <div class="concepto">
+        <h3>Comandos esenciales</h3>
+        <table class="tabla-referencia">
+          <tr><th>Comando</th><th>Qué hace</th></tr>
+          <tr><td>git init</td><td>Inicializa Git en la carpeta</td></tr>
+          <tr><td>git add .</td><td>Prepara todos los archivos para el commit</td></tr>
+          <tr><td>git commit -m "mensaje"</td><td>Guarda los cambios localmente con un mensaje</td></tr>
+          <tr><td>git branch -M main</td><td>Renombra la rama principal a "main"</td></tr>
+          <tr><td>git remote add origin URL</td><td>Conecta tu carpeta con el repositorio de GitHub</td></tr>
+          <tr><td>git push -u origin main</td><td>Sube el código a GitHub por primera vez</td></tr>
+          <tr><td>git push</td><td>Sube cambios posteriores (ya configurado)</td></tr>
+          <tr><td>git pull</td><td>Baja cambios de GitHub a tu PC</td></tr>
+          <tr><td>git status</td><td>Muestra el estado de los archivos</td></tr>
+          <tr><td>git remote -v</td><td>Muestra a qué repositorio está conectado</td></tr>
+        </table>
+      </div>
+
+      <div class="concepto">
+        <h3>Flujo de trabajo estándar</h3>
+        <pre><code><span class="comentario"># Primera vez (solo una vez por proyecto)</span>
+git init
+git add .
+git commit -m <span class="string">"primer commit"</span>
+git branch -M main
+git remote add origin https://github.com/usuario/repo.git
+git push -u origin main
+
+<span class="comentario"># Siguientes veces (para cada entrega)</span>
+git add .
+git commit -m <span class="string">"descripción de los cambios"</span>
+git push</code></pre>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PIE -->
+  <div class="pie">
+    <p>Guía creada para la Prueba de Desempeño · Módulo 2 · <span>Riwi 2026</span> · JJBLL99</p>
+  </div>
+
+</body>
+</html>
