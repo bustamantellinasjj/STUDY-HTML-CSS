@@ -41,11 +41,8 @@ fusion-gourmet/
 4. Right-click `index.html` → **Open with Live Server**
 5. The site will open automatically in your browser
 
-## Adding Images
-Replace the placeholder color blocks in CSS with real images:
-- In `.foto-chef-1`, `.foto-chef-2`, `.foto-chef-3`: add `background-image: url('imagenes/chef-name.jpg');`
-- In `.foto-g1` through `.foto-g5`: add `background-image: url('imagenes/galeria-1.jpg');`
-- In `.hero`: uncomment the `background-image: url('imagenes/hero.jpg');` line
+### Adding Images
+Images are already included in the `fotos/` folder and linked in the CSS and HTML files.
 
 ## Color Palette
 | Name       | Hex       | Usage              |
