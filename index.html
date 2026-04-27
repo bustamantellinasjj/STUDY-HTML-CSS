@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fusión Gourmet | Festival Gastronómico de Vanguardia</title>
+
+  <!-- Fuente elegante desde Google Fonts: Playfair Display (títulos) + Afacad (cuerpo) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Afacad:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- ||||||||||||||||||||||||||||||||||||||||||||||
+       HEADER: Logo del festival + menú de navegación
+       Semántica: <header> + <nav>
+       |||||||||||||||||||||||||||||||||||||||||||||| -->
+  <header class="encabezado">
+
+    <!-- Logo / nombre del festival -->
+    <div class="logo">
+      <span class="logo-fusion">Fusión</span>
+      <span class="logo-gourmet">Gourmet</span>
+      <span class="logo-sub">FESTIVAL · 2026</span>
+    </div>
+
+    <!-- Menú de navegación desktop -->
+    <nav class="menu">
+      <a href="#inicio">Inicio</a>
+      <a href="#horarios">Catas</a>
+      <a href="#chefs">Chefs</a>
+      <a href="#sobre">Salería</a>
+      <a href="#multimedia">Galería</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <!-- Ícono hamburguesa para móvil (solo CSS, sin JS) -->
+    <label class="hamburguesa" for="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
+
+    <!-- Menú móvil: se muestra cuando el checkbox está activo -->
+    <nav class="menu-movil">
+      <a href="#inicio">Inicio</a>
+      <a href="#horarios">Catas</a>
+      <a href="#chefs">Chefs</a>
+      <a href="#sobre">Salería</a>
+      <a href="#multimedia">Galería</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+  </header>
+
+  <!-- |||||||||||||||||||||||||||||||||||||||||||||||||
+       MAIN: Contenedor principal de todas las secciones
+       ||||||||||||||||||||||||||||||||||||||||||||||||| -->
+  <main>
+
+    <!-- ----------------------------------------------------------
+         SECCIÓN PRINCIPAL (Hero): Impacto visual + llamado a acción
+         ---------------------------------------------------------- -->
+    <section id="inicio" class="hero">
+      <div class="hero-contenido">
+        <p class="hero-etiqueta">12 · 13 · 14 de Septiembre · 2026</p>
+        <h1 class="hero-titulo">Sabores de Vanguardia</h1>
+        <p class="hero-subtitulo">Un festival único — donde la cocina de autor se convierte en arte</p>
+        <a href="#horarios" class="boton">Reservar Entrada</a>
+      </div>
+    </section>
+
+
+    <!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+         SECCIÓN DE HORARIOS: Tabla de catas y chefs (PUNTO EXTRA)
+         ||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+    <section id="horarios" class="seccion fondo-oscuro">
+      <h2 class="titulo-seccion claro">Horario de Catas</h2>
+      <p class="subtitulo-seccion claro">Upcoming Events — Selecciona tu experiencia</p>
+
+      <!-- Tabla HTML estructurada con thead, tbody, tr, th, td -->
+      <div class="tabla-contenedor">
+        <table class="tabla-horarios">
+          <thead>
+            <tr>
+              <th>Hora</th>
+              <th>Chef</th>
+              <th>Maridaje de Mesa</th>
+              <th>Talleres</th>
+              <th>Tickets</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>14:00</td>
+              <td>Chef Ana López</td>
+              <td>Maridaje de Arroces</td>
+              <td>Cocina molecular</td>
+              <td><a href="#contacto" class="boton-tabla">Comprar</a></td>
+            </tr>
+            <tr>
+              <td>15:00</td>
+              <td>Chef Ana López</td>
+              <td>Maridaje de Vinos</td>
+              <td>Fermentados artesanales</td>
+              <td><a href="#contacto" class="boton-tabla">Comprar</a></td>
+            </tr>
+            <tr>
+              <td>16:00</td>
+              <td>Chef Raúl Medina</td>
+              <td>Maridaje de Texturas</td>
+              <td>Alta pastelería</td>
+              <td><a href="#contacto" class="boton-tabla">Comprar</a></td>
+            </tr>
+            <tr>
+              <td>17:00</td>
+              <td>Chef Sofía Herrera</td>
+              <td>Maridaje de Especias</td>
+              <td>Destilados artesanales</td>
+              <td><a href="#contacto" class="boton-tabla">Comprar</a></td>
+            </tr>
+            <tr>
+              <td>19:00</td>
+              <td>Chef Raúl Medina</td>
+              <td>Cata de Cierre</td>
+              <td>Fusión latinoamericana</td>
+              <td><a href="#contacto" class="boton-tabla">Comprar</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+         SECCIÓN NUESTROS CHEFS (PUNTO EXTRA - sección adicional)
+         Usa CSS Grid para las tarjetas
+         |||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+    <section id="chefs" class="seccion">
+      <h2 class="titulo-seccion">Nuestros Chefs</h2>
+      <p class="subtitulo-seccion">Maestros de la cocina de autor</p>
+
+      <!-- Grid de tarjetas de chefs -->
+      <div class="grid-chefs">
+
+        <article class="tarjeta-chef">
+          <div class="foto-chef foto-chef-1"></div>
+          <h3 class="nombre-chef">Chef Ana López</h3>
+          <p class="especialidad">· Cocina Molecular ·</p>
+          <p class="bio-chef">Reconocida por transformar ingredientes tradicionales en experiencias sensoriales únicas. Dos estrellas Michelin.</p>
+        </article>
+
+        <article class="tarjeta-chef">
+          <div class="foto-chef foto-chef-2"></div>
+          <h3 class="nombre-chef">Chef Raúl Medina</h3>
+          <p class="especialidad">· Fusión Latinoamericana ·</p>
+          <p class="bio-chef">Embajador de los sabores del continente, con técnica francesa y alma criolla. Premio Iberoamérica 2024.</p>
+        </article>
+
+        <article class="tarjeta-chef">
+          <div class="foto-chef foto-chef-3"></div>
+          <h3 class="nombre-chef">Chef Sofía Herrera</h3>
+          <p class="especialidad">· Alta Pastelería ·</p>
+          <p class="bio-chef">Pionera en postres de diseño arquitectónico. Su obra combina geometría y sabor en cada pieza.</p>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+         SECCIÓN SOBRE EL FESTIVAL: Concepto + lista de filosofía
+         |||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+    <section id="sobre" class="seccion fondo-crema">
+      <div class="sobre-contenido">
+
+        <!-- Texto de descripción -->
+        <div class="sobre-texto">
+          <h2 class="titulo-seccion">Sobre el Festival</h2>
+          <p>Fusión Gourmet nació como una propuesta para celebrar la gastronomía como
+             lenguaje universal. Cada edición reúne a los chefs más innovadores para crear
+             experiencias que van más allá de comer: son vivencias que involucran todos los sentidos.</p>
+          <p>El festival se desarrolla en un espacio diseñado para que cada rincón cuente una
+             historia culinaria, desde la bienvenida hasta el postre de cierre.</p>
+
+          <!-- Lista de valores/filosofía del festival (REQUISITO OBLIGATORIO) -->
+          <h3 class="subtitulo-lista">Nuestra Filosofía</h3>
+          <ul class="lista-filosofia">
+            <li>🌱 Sostenibilidad e ingredientes de temporada</li>
+            <li>🔬 Innovación técnica en cada preparación</li>
+            <li>🤝 Colaboración entre culturas gastronómicas</li>
+            <li>🎨 La cocina como expresión artística</li>
+            <li>♻️ Cero desperdicio alimentario</li>
+          </ul>
+        </div>
+
+        <!-- Lista de patrocinadores (REQUISITO OBLIGATORIO - segunda lista) -->
+        <div class="sobre-patrocinadores">
+          <h3 class="subtitulo-lista">Patrocinadores</h3>
+          <ul class="lista-patrocinadores">
+            <li>Bodega Terruño</li>
+            <li>Aceites Origen</li>
+            <li>Sal de Mar Premium</li>
+            <li>Chef's Table Magazine</li>
+            <li>Utensilios Artesanos</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ||||||||||||||||||||||||||||||||||||||||
+         SECCIÓN MULTIMEDIA: Galería de imágenes
+         Usa CSS Grid para el mosaico
+         ||||||||||||||||||||||||||||||||||||||||||| -->
+    <section id="multimedia" class="seccion fondo-oscuro">
+      <h2 class="titulo-seccion claro">Galería</h2>
+      <p class="subtitulo-seccion claro">Una muestra de ediciones anteriores</p>
+
+      <!-- Mosaico de imágenes con CSS Grid -->
+      <div class="galeria">
+        <img src="fotos/Foto G1.jpg" alt="Galería 1" class="foto-galeria grande">
+        <img src="fotos/Foto G2.jpg" alt="Galería 2" class="foto-galeria">
+        <img src="fotos/Foto G3.jpg" alt="Galería 3" class="foto-galeria">
+        <img src="fotos/Foto G4.jpg" alt="Galería 4" class="foto-galeria">
+        <img src="fotos/Foto-1.jpg" alt="Galería 5" class="foto-galeria grande">
+      </div>
+
+      <!-- Nota para el evaluador: reemplazar los divs por <img src="imagenes/..."> -->
+      <p class="nota-galeria">· Las imágenes se cargan desde la carpeta /imagenes/ ·</p>
+    </section>
+
+  </main><!-- fin de main -->
+
+
+  <!-- |||||||||||||||||||||||||||||||||||||||||||
+       FOOTER: Contacto, redes sociales y créditos
+       ||||||||||||||||||||||||||||||||||||||||||| -->
+  <footer id="contacto" class="pie">
+
+    <div class="pie-contenido">
+
+      <!-- Columna 1: Logo en el footer -->
+      <div class="pie-columna">
+        <p class="pie-logo">Fusión Gourmet</p>
+        <p class="pie-desc">Festival Gastronómico de Vanguardia · Bogotá, Colombia</p>
+      </div>
+
+      <!-- Columna 2: Contacto -->
+      <div class="pie-columna">
+        <h4 class="pie-titulo">Contacto</h4>
+        <p>info@fusiongourmet.com</p>
+        <p>+57 310 000 0000</p>
+        <p>Carrera 11 #93-53, Bogotá</p>
+      </div>
+
+      <!-- Columna 3: Redes sociales (lista con enlaces) (REQUISITO OBLIGATORIO) -->
+      <div class="pie-columna">
+        <h4 class="pie-titulo">Redes Sociales</h4>
+        <ul class="lista-redes">
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">TikTok</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Línea de derechos -->
+    <div class="pie-copy">
+      <p>© 2026 Fusión Gourmet · Todos los derechos reservados</p>
+    </div>
+
+  </footer>
+
+</body>
+</html>

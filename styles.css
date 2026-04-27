@@ -1,0 +1,710 @@
+/* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+   Archivo: styles.css
+   Paleta: Verde oscuro (#356630), negro, blanco, cobre (#b87333)
+   Fuentes: Playfair Display (títulos) + Afacad (cuerpo)
+   |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+
+/* |||||||||||||||||||||||||||||||||||||||||||||
+   VARIABLES CSS: Paleta y fuentes centralizadas
+   Cambia aquí y aplica en todo el sitio
+   ||||||||||||||||||||||||||||||||||||||||||||| */
+:root {
+  --verde:     #356630;
+  --verde-claro: #4a8f42;
+  --negro:     #0e0e0e;
+  --negro-suave: #1c1c1c;
+  --blanco:    #ffffff;
+  --crema:     #f5f0e8;
+  --cobre:     #b87333;
+  --cobre-claro: #d4945a;
+  --gris-texto: #333333;
+}
+
+/* |||||||||||||||||||||||||||||||||||||||||||||||||||
+   RESET BÁSICO: quita márgenes y rellenos por defecto
+   ||||||||||||||||||||||||||||||||||||||||||||||||||| */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ||||||||||||||||||||||||||
+   ESTILOS GENERALES DEL BODY
+   |||||||||||||||||||||||||| */
+body {
+  font-family: 'Afacad', sans-serif;
+  background-color: var(--negro);
+  color: var(--gris-texto);
+  line-height: 1.7;
+}
+
+/* ||||||||||||||||||||||||||||||||||||||||||||||
+   ENCABEZADO (header)
+   Flexbox: logo a la izquierda, nav a la derecha
+   |||||||||||||||||||||||||||||||||||||||||||||| */
+.encabezado {
+  background-color: var(--negro-suave);
+  padding: 18px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;       /* Se queda fijo al hacer scroll */
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--cobre);
+}
+
+/* LOGO */
+.logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logo-fusion {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--cobre-claro);
+}
+
+.logo-gourmet {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--blanco);
+  letter-spacing: 2px;
+}
+
+.logo-sub {
+  font-size: 0.65rem;
+  color: var(--cobre);
+  letter-spacing: 3px;
+}
+
+/* MENÚ DE NAVEGACIÓN (desktop) */
+.menu {
+  display: flex;
+  gap: 28px;
+}
+
+.menu a {
+  color: var(--blanco);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: var(--cobre-claro);
+}
+
+/* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+   MENÚ HAMBURGUESA (responsive - solo CSS, sin JavaScript)
+   Funciona con un checkbox oculto + label que actúa como botón
+   |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+
+/* Oculta el checkbox real */
+.menu-toggle-checkbox {
+  display: none;
+}
+
+/* El ícono de tres líneas: visible solo en móvil */
+.hamburguesa {
+  display: none;            /* Oculto en desktop, se muestra en móvil */
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+/* Cada línea del ícono hamburguesa */
+.hamburguesa span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--blanco);
+}
+
+/* El menú móvil: oculto por defecto */
+.menu-movil {
+  display: none;
+}
+
+/* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+   SECCIÓN HERO (inicio)
+   Imagen de fondo con overlay oscuro + contenido centrado
+   ||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+.hero {
+  /* Fondo simulado con gradiente (reemplazar por imagen real) */
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.65) 0%,
+      rgba(14, 14, 14, 0.85) 100%
+    ),
+    /* Imagen real: background-image: url('imagenes/hero.jpg'); */
+    linear-gradient(135deg, #2a1a0a 0%, #1a2a0a 50%, #0a1a1a 100%);
+  background-size: cover;
+  background-position: center;
+
+  min-height: 90vh;            /* Ocupa casi toda la pantalla */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.hero-contenido {
+  max-width: 750px;
+}
+
+/* ANIMACIÓN de entrada: aparece desde abajo */
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-etiqueta {
+  font-size: 0.8rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--cobre);
+  margin-bottom: 20px;
+  animation: aparecer 0.8s ease both;
+}
+
+.hero-titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.5rem;
+  font-style: italic;
+  color: var(--blanco);
+  line-height: 1.1;
+  margin-bottom: 20px;
+  animation: aparecer 0.8s ease 0.2s both;  /* 0.2s de retraso */
+}
+
+.hero-subtitulo {
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 40px;
+  animation: aparecer 0.8s ease 0.4s both;  /* 0.4s de retraso */
+}
+
+/* |||||||||||||||||||||||||||||||||||||||||||||||
+   BOTÓN PRINCIPAL (reutilizable en todo el sitio)
+   ||||||||||||||||||||||||||||||||||||||||||||||| */
+.boton {
+  display: inline-block;
+  background-color: var(--cobre);
+  color: var(--blanco);
+  padding: 14px 36px;
+  border-radius: 2px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: background-color 0.3s, transform 0.2s;
+  animation: aparecer 0.8s ease 0.6s both;
+}
+
+.boton:hover {
+  background-color: var(--cobre-claro);
+  transform: translateY(-2px);    /* Sube ligeramente al pasar el mouse */
+}
+
+/* |||||||||||||||||||
+   SECCIONES GENERALES
+   ||||||||||||||||||| */
+.seccion {
+  padding: 80px 40px;
+}
+
+/* Variante oscura (fondo negro) */
+.fondo-oscuro {
+  background-color: var(--negro-suave);
+}
+
+/* Variante crema (fondo claro) */
+.fondo-crema {
+  background-color: var(--crema);
+}
+
+/* El fondo por defecto de las secciones sin clase especial */
+.seccion:not(.fondo-oscuro):not(.fondo-crema) {
+  background-color: var(--blanco);
+}
+
+.titulo-seccion {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-style: italic;
+  color: var(--negro);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Versión clara del título (para fondos oscuros) */
+.titulo-seccion.claro {
+  color: var(--blanco);
+}
+
+.subtitulo-seccion {
+  text-align: center;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--cobre);
+  margin-bottom: 50px;
+}
+
+/* |||||||||||||||||||||||||||||||||||||||
+   TABLA DE HORARIOS
+   Centrada con scroll horizontal en móvil
+   ||||||||||||||||||||||||||||||||||||||| */
+.tabla-contenedor {
+  overflow-x: auto;      /* En pantallas pequeñas aparece scroll horizontal */
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.tabla-horarios {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+/* Encabezado de la tabla */
+.tabla-horarios thead {
+  background-color: var(--cobre);
+  color: var(--blanco);
+}
+
+.tabla-horarios th {
+  padding: 14px 20px;
+  text-align: left;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+/* Filas del cuerpo */
+.tabla-horarios tbody tr {
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  transition: background-color 0.2s;
+}
+
+.tabla-horarios tbody tr:hover {
+  background-color: rgba(184, 115, 51, 0.1);   /* Hover con tono cobre suave */
+}
+
+.tabla-horarios td {
+  padding: 14px 20px;
+  color: rgba(255,255,255,0.85);
+}
+
+/* Botón dentro de la tabla */
+.boton-tabla {
+  display: inline-block;
+  background-color: var(--verde);
+  color: var(--blanco);
+  padding: 6px 16px;
+  border-radius: 2px;
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: background-color 0.3s;
+}
+
+.boton-tabla:hover {
+  background-color: var(--verde-claro);
+}
+
+/* |||||||||||||||||||||||||||||||||
+   GRID DE CHEFS
+   3 columnas en desktop, 1 en móvil
+   ||||||||||||||||||||||||||||||||| */
+.grid-chefs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);   /* 3 columnas iguales */
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* TARJETA de cada chef */
+.tarjeta-chef {
+  background-color: var(--crema);
+  border-radius: 4px;
+  overflow: hidden;
+  text-align: center;
+  padding-bottom: 25px;
+
+  /* ANIMACIÓN: efecto de levantarse al hacer hover */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tarjeta-chef:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+/* Foto del chef: simulada con color de fondo (reemplazar por <img>) */
+.foto-chef {
+  width: 100%;
+  height: 220px;
+  background-color: #888;
+  background-size: cover;
+  background-position: center top;
+}
+
+/* Colores placeholder para cada chef (reemplazar por imágenes reales) */
+.foto-chef-1 { background-image: url('fotos/Chef-1.jpg'); background-size: cover; background-position: center; }
+.foto-chef-2 { background-image: url('fotos/Chef-2.jpg'); background-size: cover; background-position: center; }
+.foto-chef-3 { background-image: url('fotos/Chef-3.jpg'); background-size: cover; background-position: center; }
+
+.nombre-chef {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--negro);
+  margin: 18px 15px 5px;
+}
+
+.especialidad {
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  color: var(--cobre);
+  margin-bottom: 12px;
+}
+
+.bio-chef {
+  font-size: 0.9rem;
+  color: var(--gris-texto);
+  padding: 0 20px;
+  line-height: 1.6;
+}
+
+/* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+   SECCIÓN SOBRE EL FESTIVAL
+   Flexbox: texto a la izquierda, patrocinadores a la derecha
+   |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+.sobre-contenido {
+  display: flex;
+  gap: 60px;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.sobre-texto {
+  flex: 2;              /* Toma el doble de espacio que patrocinadores */
+}
+
+.sobre-texto p {
+  color: var(--gris-texto);
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.sobre-patrocinadores {
+  flex: 1;
+}
+
+/* Subtítulo de las listas */
+.subtitulo-lista {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--negro);
+  margin: 20px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--cobre);
+}
+
+/* Lista de filosofía con puntos personalizados */
+.lista-filosofia {
+  list-style: none;
+  padding: 0;
+}
+
+.lista-filosofia li {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  font-size: 0.95rem;
+  color: var(--gris-texto);
+}
+
+/* Lista de patrocinadores */
+.lista-patrocinadores {
+  list-style: none;
+  padding: 0;
+}
+
+.lista-patrocinadores li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  font-size: 0.95rem;
+  color: var(--gris-texto);
+  letter-spacing: 0.5px;
+}
+
+.lista-patrocinadores li::before {
+  content: "◆ ";          /* Decoración antes de cada patrocinador */
+  color: var(--cobre);
+  font-size: 0.7rem;
+}
+
+/* ||||||||||||||||||||||||||||||||||||||||||||||||||
+   GALERÍA MULTIMEDIA
+   CSS Grid con celdas de distintos tamaños (mosaico)
+   |||||||||||||||||||||||||||||||||||||||||||||||||| */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 220px 220px;
+  gap: 12px;
+  max-width: 1000px;
+  margin: 0 auto 20px;
+}
+
+/* Foto normal */
+.foto-galeria {
+  background-color: #333;
+  background-size: cover;
+  background-position: center;
+  border-radius: 3px;
+  overflow: hidden;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.foto-galeria:hover {
+  transform: scale(1.02);
+  filter: brightness(1.15);
+}
+
+
+/* Corrección para imágenes <img> en la galería */
+.galeria img.foto-galeria {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+/* Las fotos "grandes" ocupan 2 columnas */
+.foto-galeria.grande {
+  grid-column: span 2;
+}
+
+/* Colores placeholder para la galería */
+.foto-g1 { background: linear-gradient(135deg, #2a1a0a, #5a3a1a); }
+.foto-g2 { background: linear-gradient(135deg, #1a2a0a, #3a5a1a); }
+.foto-g3 { background: linear-gradient(135deg, #0a1a2a, #1a3a5a); }
+.foto-g4 { background: linear-gradient(135deg, #2a0a1a, #5a1a3a); }
+.foto-g5 { background: linear-gradient(135deg, #1a1a0a, #3a3a1a); }
+
+.nota-galeria {
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.3);
+}
+
+/* ||||||||||||||||||||||
+   FOOTER (pie de página)
+   |||||||||||||||||||||| */
+.pie {
+  background-color: var(--negro);
+  border-top: 1px solid var(--cobre);
+  padding: 60px 40px 0;
+}
+
+.pie-contenido {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.pie-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-style: italic;
+  color: var(--cobre-claro);
+  margin-bottom: 10px;
+}
+
+.pie-desc {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+}
+
+.pie-titulo {
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--cobre);
+  margin-bottom: 16px;
+}
+
+.pie-columna p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 6px;
+}
+
+/* Lista de redes sociales en el footer */
+.lista-redes {
+  list-style: none;
+  padding: 0;
+}
+
+.lista-redes li {
+  margin-bottom: 8px;
+}
+
+.lista-redes a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.lista-redes a:hover {
+  color: var(--cobre-claro);
+}
+
+/* Línea de copyright */
+.pie-copy {
+  text-align: center;
+  padding: 25px 0;
+  margin-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 1px;
+}
+
+/* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+   MEDIA QUERIES - DISEÑO RESPONSIVO
+   Se activan cuando la pantalla es menor a 1024px y a 600px
+   |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+
+/* ---- TABLET: pantallas hasta 1024px ---- */
+@media (max-width: 1024px) {
+
+  .hero-titulo {
+    font-size: 3rem;
+  }
+
+  .grid-chefs {
+    grid-template-columns: repeat(2, 1fr);   /* 2 columnas en tablet */
+  }
+
+  .sobre-contenido {
+    flex-direction: column;     /* Apila texto y patrocinadores */
+    gap: 30px;
+  }
+
+  .pie-contenido {
+    grid-template-columns: repeat(2, 1fr);   /* 2 columnas en footer */
+  }
+}
+
+/* ---- MÓVIL: pantallas hasta 600px ---- */
+@media (max-width: 600px) {
+
+  /* Header: más compacto */
+  .encabezado {
+    padding: 15px 20px;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  /* Oculta el menú desktop */
+  .menu {
+    display: none;
+  }
+
+  /* Muestra el ícono hamburguesa */
+  .hamburguesa {
+    display: flex;
+  }
+
+  /* Menú móvil: ocupa toda la pantalla cuando el checkbox está activo */
+  .menu-toggle-checkbox:checked ~ .menu-movil {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 15px 0;
+    gap: 0;
+  }
+
+  .menu-movil a {
+    color: var(--blanco);
+    text-decoration: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    letter-spacing: 1px;
+  }
+
+  .menu-movil a:hover {
+    background-color: rgba(255,255,255,0.05);
+  }
+
+  /* Hero más compacto */
+  .hero {
+    min-height: 70vh;
+    padding: 80px 20px 60px;
+  }
+
+  .hero-titulo {
+    font-size: 2.5rem;
+  }
+
+  /* Secciones con menos padding */
+  .seccion {
+    padding: 50px 20px;
+  }
+
+  .titulo-seccion {
+    font-size: 2rem;
+  }
+
+  /* Chefs: 1 columna en móvil */
+  .grid-chefs {
+    grid-template-columns: 1fr;
+  }
+
+  /* Galería: 2 columnas en móvil, sin mosaico */
+  .galeria {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+
+  /* Quita el span 2 en móvil para que todas las fotos sean iguales */
+  .foto-galeria.grande {
+    grid-column: span 1;
+  }
+
+  /* Footer: 1 columna en móvil */
+  .pie-contenido {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .pie {
+    padding: 40px 20px 0;
+  }
+}
