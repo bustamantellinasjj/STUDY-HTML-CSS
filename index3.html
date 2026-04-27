@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Portafolio | JJBLL99</title>
+  <link href="https://fonts.googleapis.com/css2?family=Afacad&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles3.css">
+</head>
+
+<body>
+
+  <!-- ||||||||||||||||||||||||||||||||||||
+    ENCABEZADO: nombre y menú de navegación
+    Flexbox: nombre izquierda, menú derecha
+  ||||||||||||||||||||||||||||||||||||||||| -->
+  <header class="encabezado">
+    <h1 class="nombre-pagina">Portafolio</h1>
+    <nav class="menu">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#contacto">Contacto</a>
+      <a href="mascotas3.html">Mis Mascotas</a>
+    </nav>
+  </header>
+
+  <!-- |||||||||||||||||||||||||||||||||||||
+    SECCIÓN: Sobre mí
+    Flexbox: imagen izquierda, texto derecha
+  |||||||||||||||||||||||||||||||||||||||||| -->
+  <section id="sobre-mi" class="seccion">
+    <h2 class="titulo-seccion">Sobre mí</h2>
+
+    <div class="sobre-mi-contenido">
+      <img src="imagenes/JJ.jpeg" alt="Mi foto" class="foto-perfil">
+      <p>Hola, soy Juan, tengo 26 años y soy estudiante de desarrollo de software en Riwi. (Arquitecto de profesión)<br><br>
+        Me apasiona el desarrollo web y la creación de experiencias digitales que combinen funcionalidad y diseño. Actualmente estoy fortaleciendo mis conocimientos en HTML y CSS, y próximamente comenzaré con JavaScript para seguir evolucionando como desarrollador frontend.<br><br>
+        Tengo un gran interés por el diseño, ya que me permite materializar ideas y explorar distintas formas de expresión visual. Disfruto crear interfaces donde la estética y la funcionalidad coexistan.<br><br>
+        Fuera del ámbito académico, practico running, una actividad que me ayuda a desconectar, mantener disciplina y encontrar un equilibrio en mi día a día.</p>
+    </div>
+
+    <!-- BOTÓN DE INTERACTIVIDAD (JavaScript) -->
+    <div style="margin-top: 1.5rem;">
+      <button class="boton" id="btn-mensaje">Mostrar mensaje de bienvenida</button>
+      <p id="mensaje-bienvenida" style="display: none; margin-top: 1rem; color: #356630; font-weight: bold;">
+        ¡Bienvenido a mi portafolio! Gracias por visitarlo 👋
+      </p>
+    </div>
+  </section>
+
+  <!-- |||||||||||||||||||||||||||||||
+    SECCIÓN: Proyectos
+    CSS Grid: 3 columnas en escritorio
+  |||||||||||||||||||||||||||||||||||| -->
+  <section id="proyectos" class="seccion">
+    <h2 class="titulo-seccion">Proyectos</h2>
+
+    <div class="grid-proyectos">
+
+      <div class="tarjeta-proyecto">
+        <div class="tarjeta-icono">🌐</div>
+        <h3 class="tarjeta-titulo">Portafolio Personal</h3>
+        <p class="tarjeta-descripcion">Página personal construida con HTML5 y CSS3. Incluye secciones de presentación, proyectos y contacto.</p>
+        <a href="#sobre-mi" class="tarjeta-enlace">Ver proyecto →</a>
+      </div>
+
+      <div class="tarjeta-proyecto">
+        <div class="tarjeta-icono">🐾</div>
+        <h3 class="tarjeta-titulo">Galería de Mascotas</h3>
+        <p class="tarjeta-descripcion">Galería visual organizada con Flexbox y CSS Grid. Muestra tarjetas con imágenes y descripciones.</p>
+        <a href="mascotas3.html" class="tarjeta-enlace">Ver proyecto →</a>
+      </div>
+
+      <div class="tarjeta-proyecto">
+        <div class="tarjeta-icono">📬</div>
+        <h3 class="tarjeta-titulo">Formulario de Contacto</h3>
+        <p class="tarjeta-descripcion">Formulario con campos de nombre, correo, teléfono, asunto y mensaje. Diseño limpio y funcional.</p>
+        <a href="#contacto" class="tarjeta-enlace">Ver proyecto →</a>
+      </div>
+
+      <div class="tarjeta-proyecto">
+        <div class="tarjeta-icono">📐</div>
+        <h3 class="tarjeta-titulo">Layouts con Flexbox</h3>
+        <p class="tarjeta-descripcion">Aplicación de Flexbox para organizar y alinear elementos de forma profesional y responsiva.</p>
+        <a href="#" class="tarjeta-enlace">Ver proyecto →</a>
+      </div>
+
+      <div class="tarjeta-proyecto">
+        <div class="tarjeta-icono">🗂️</div>
+        <h3 class="tarjeta-titulo">CSS Grid Layout</h3>
+        <p class="tarjeta-descripcion">Implementación de CSS Grid para crear estructuras de columnas y filas de manera organizada.</p>
+        <a href="#" class="tarjeta-enlace">Ver proyecto →</a>
+      </div>
+
+      <div class="tarjeta-proyecto">
+        <div class="tarjeta-icono">🚀</div>
+        <h3 class="tarjeta-titulo">Próximamente</h3>
+        <p class="tarjeta-descripcion">Nuevos proyectos en desarrollo con JavaScript. Aplicaciones interactivas y dinámicas.</p>
+        <a href="#" class="tarjeta-enlace">En progreso →</a>
+      </div>
+
+    </div>
+
+    <!-- BOTÓN: muestra/oculta la sección de proyectos -->
+    <div style="margin-top: 1.5rem; text-align: center;">
+      <button class="boton" id="btn-proyectos">Ocultar proyectos</button>
+    </div>
+  </section>
+
+  <!-- |||||||||||||||
+    SECCIÓN: Contacto
+  |||||||||||||||||||| -->
+  <section id="contacto" class="seccion">
+    <h2 class="titulo-seccion">Contacto</h2>
+
+    <form class="formulario">
+      <input type="text" placeholder="Tu nombre completo" class="campo">
+      <input type="email" placeholder="Tu correo electrónico" class="campo">
+      <input type="tel" placeholder="Tu número de teléfono" class="campo">
+      <input type="text" placeholder="Asunto" class="campo">
+      <textarea placeholder="Escribe tu mensaje aquí..." class="campo area-mensaje"></textarea>
+      <button type="submit" class="boton">Enviar mensaje</button>
+    </form>
+  </section>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="pie">
+    <p>© 2026 Juan Jose</p>
+  </footer>
+
+  <!-- |||||||||||||||||||||||||||||||||||||||||||||||
+    JAVASCRIPT: se enlaza justo antes de cerrar body
+    El archivo script.js agrega interactividad básica
+  |||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+  <script src="script.js"></script>
+
+</body>
+</html>
