@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SPA - JavaScript Fundamentals</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-900 text-white">
+    <!-- Header persistente -->
+    <header class="bg-gray-800 p-4 flex justify-between">
+      <h1 class="text-xl font-bold text-indigo-400">Mini SPA</h1>
+
+      <nav class="space-x-4">
+        <a href="#/" class="link">Home</a>
+        <a href="#/characters" class="link">Characters</a>
+        <a href="#/about" class="link">About</a>
+      </nav>
+    </header>
+    <div class="m-6 mb-0">
+      <a
+        href="../index.html"
+        class="group inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-indigo-400 border border-indigo-400/30 rounded-lg bg-gray-800/40 backdrop-blur hover:bg-indigo-500 hover:text-white hover:border-indigo-500 active:scale-95 transition-all duration-200 ease-in-out shadow-sm hover:shadow-md"
+      >
+        <!-- Icono -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-4 h-4 transition-transform duration-200 group-hover:-translate-x-1"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
+
+        <span class="tracking-wide">Volver al inicio</span>
+      </a>
+    </div>
+    <!-- Contenido dinámico -->
+    <main id="app" class="p-6 max-w-4xl mx-auto">
+      <!-- JS renderiza aquí -->
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

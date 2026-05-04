@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM - JavaScript Fundamentals</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-900 text-white">
+    <div class="m-6 mb-0">
+      <a
+        href="../index.html"
+        class="group inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-indigo-400 border border-indigo-400/30 rounded-lg bg-gray-800/40 backdrop-blur hover:bg-indigo-500 hover:text-white hover:border-indigo-500 active:scale-95 transition-all duration-200 ease-in-out shadow-sm hover:shadow-md"
+      >
+        <!-- Icono -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-4 h-4 transition-transform duration-200 group-hover:-translate-x-1"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
+
+        <span class="tracking-wide">Volver al inicio</span>
+      </a>
+    </div>
+
+    <main class="max-w-4xl mx-auto p-6 space-y-8">
+      <header>
+        <h1 class="text-3xl font-bold text-indigo-400">Manipulación del DOM</h1>
+        <p class="text-gray-300">
+          El DOM (Document Object Model) es la representación en memoria del
+          HTML. JavaScript permite leerlo, modificarlo y reaccionar a eventos.
+        </p>
+      </header>
+
+      <!-- Contenedor dinámico -->
+      <section class="space-y-4">
+        <h2 class="text-xl text-indigo-300">Personaje</h2>
+
+        <div id="card" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          <p class="text-gray-400">
+            Haz clic en el botón para cargar un personaje
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-3 items-center">
+          <button
+            id="btn"
+            class="bg-indigo-500 px-4 py-2 rounded hover:bg-indigo-600"
+          >
+            Generar personajes
+          </button>
+
+          <button
+            id="clear-btn"
+            class="bg-gray-600 px-4 py-2 rounded hover:bg-gray-500"
+          >
+            Limpiar
+          </button>
+
+          <select
+            id="filter-species"
+            class="bg-gray-700 text-white px-3 py-2 rounded"
+          >
+            <option value="">Todas las especies</option>
+            <option value="Human">Human</option>
+            <option value="Alien">Alien</option>
+            <option value="Robot">Robot</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- Explicación -->
+      <section class="space-y-2 text-gray-300">
+        <h2 class="text-xl text-indigo-300">¿Qué está pasando?</h2>
+        <ul class="list-disc ml-6 space-y-1">
+          <li>Seleccionamos elementos con <code>getElementById</code></li>
+          <li>Escuchamos eventos con <code>addEventListener</code></li>
+          <li>Modificamos el DOM con <code>innerHTML</code></li>
+          <li>Consumimos una API externa</li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
